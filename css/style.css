@@ -19,9 +19,13 @@ main {
   max-width: 960px;
   display: flex;
   margin: 10% auto;
-  justify-content: center; }
+  flex-direction: column; }
+  main div {
+    display: flex;
+    align-self: center; }
   main h1 {
     font-size: 32px;
-    font-family: sans-serif; }
+    font-family: sans-serif;
+    padding-bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */
