@@ -1,7 +1,9 @@
-let button = document.querySelector("button");
-let buttonClick = button.addEventListener("click", clickEvent, false);
+let plainbutton = document.querySelector(".plaintext");
+let gpsbutton = document.querySelector(".gps");
+let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, false);
+let gpsButtonClick = gpsbutton.addEventListener("click", gpsClickEvent, false);
 
-let connLink = "http://api.openweathermap.org/data/2.5/weather?q=Eindhoven&APPID=c364db0444ad3c687cf51fa2244afe1e";
+let connLink = "";
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
@@ -20,8 +22,45 @@ function successFunction(position) {
 function errorFunction(position) {
 	alert('Error on acquiring user position!');
 }
-console.log(connLink);
-function clickEvent (process) {
+
+function plainClickEvent (process) {
+
+let xhr = new XMLHttpRequest();
+xhr.addEventListener("readystatechange", processRequest, false);
+xhr.onreadystatechange = processRequest;
+xhr.open("GET", connLink, true);
+xhr.send();
+
+connLink = "http://api.openweathermap.org/data/2.5/weather?q=Eindhoven&APPID=c364db0444ad3c687cf51fa2244afe1e"
+console.log(xhr.status);
+//console.log(xhr.statusText);
+
+function processRequest(e) {
+ 
+ if (xhr.readyState == 4 && xhr.status == 200) {
+
+ 	console.log("Passed if in processrequest")
+ 	let response = JSON.parse(xhr.responseText);
+ 	console.log(response);
+ 	let temperature = (response.main.temp) - 273;
+ 	temperature = Math.round(temperature);
+ 	temperature = temperature + " ℃";
+ 	console.log(temperature);
+// 	alert(response.weather.description);
+ //	console.log(response.visibility);
+ //	console.log(response.name);
+ } 
+
+ else if (xhr.readyState !== 4 && xhr.status !== 200){
+
+ 	console.log("reached else in processrequest");
+ 	document.querySelector(".errorp").innerHTML = "There is an error!";
+ }
+ 
+}
+}
+
+function gpsClickEvent (process) {
 
 let xhr = new XMLHttpRequest();
 xhr.addEventListener("readystatechange", processRequest, false);
