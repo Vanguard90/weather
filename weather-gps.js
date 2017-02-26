@@ -1,7 +1,25 @@
-let plainbutton = document.querySelector(".plaintext");
-let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, false);
+let gpsbutton = document.querySelector(".gps");
+let gpsButtonClick = gpsbutton.addEventListener("click", gpsClickEvent, false);
 
-function plainClickEvent (process) {
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+} else {
+    alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+}
+
+function successFunction(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    console.log('Your latitude is :'+lat+' and longitude is '+long);
+    connLink = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=c364db0444ad3c687cf51fa2244afe1e`;
+    console.log(connLink);
+}
+
+function errorFunction(position) {
+	alert('Error on acquiring user position!');
+}
+
+function gpsClickEvent (process) {
 
 let xhr = new XMLHttpRequest();
 xhr.addEventListener("readystatechange", processRequest, false);
@@ -9,7 +27,6 @@ xhr.onreadystatechange = processRequest;
 xhr.open("GET", connLink, true);
 xhr.send();
 
-connLink = "http://api.openweathermap.org/data/2.5/weather?q=Eindhoven&APPID=c364db0444ad3c687cf51fa2244afe1e"
 console.log(xhr.status);
 //console.log(xhr.statusText);
 
