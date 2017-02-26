@@ -3,22 +3,22 @@ let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, fa
 
 function plainClickEvent (process) {
 
-let xhr = new XMLHttpRequest();
-xhr.addEventListener("readystatechange", processRequest, false);
-xhr.onreadystatechange = processRequest;
-xhr.open("GET", connLink, true);
-xhr.send();
+let plainxhr = new XMLHttpRequest();
+plainxhr.addEventListener("readystatechange", processRequest, false);
+plainxhr.onreadystatechange = processRequest;
+plainxhr.open("GET", connLink, true);
+plainxhr.send();
 
 connLink = "http://api.openweathermap.org/data/2.5/weather?q=Eindhoven&APPID=c364db0444ad3c687cf51fa2244afe1e"
-console.log(xhr.status);
+console.log(plainxhr.status);
 //console.log(xhr.statusText);
 
 function processRequest(e) {
  
- if (xhr.readyState == 4 && xhr.status == 200) {
+ if (plainxhr.readyState == 4 && plainxhr.status == 200) {
 
  	console.log("Passed if in processrequest")
- 	let response = JSON.parse(xhr.responseText);
+ 	let response = JSON.parse(plainxhr.responseText);
  	console.log(response);
  	let temperature = (response.main.temp) - 273;
  	temperature = Math.round(temperature);
@@ -29,7 +29,7 @@ function processRequest(e) {
  //	console.log(response.name);
  } 
 
- else if (xhr.readyState !== 4 && xhr.status !== 200){
+ else if (plainxhr.readyState !== 4 && plainxhr.status !== 200){
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";

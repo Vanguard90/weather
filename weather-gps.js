@@ -1,5 +1,5 @@
-let gpsbutton = document.querySelector(".gps");
-let gpsButtonClick = gpsbutton.addEventListener("click", gpsClickEvent, false);
+
+let gpsStatus;
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
@@ -13,13 +13,21 @@ function successFunction(position) {
     console.log('Your latitude is :'+lat+' and longitude is '+long);
     connLink = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=c364db0444ad3c687cf51fa2244afe1e`;
     console.log(connLink);
+    gpsStatus = true;
 }
 
 function errorFunction(position) {
+	gpsStatus = false;
 	alert('Error on acquiring user position!');
+
 }
 
+let gpsbutton = document.querySelector(".gps");
+let gpsButtonClick = gpsbutton.addEventListener("click", gpsClickEvent, false);
+
 function gpsClickEvent (process) {
+
+if (gpsStatus = true){
 
 let xhr = new XMLHttpRequest();
 xhr.addEventListener("readystatechange", processRequest, false);
@@ -31,6 +39,8 @@ console.log(xhr.status);
 //console.log(xhr.statusText);
 
 function processRequest(e) {
+
+if (gpsStatus = true){
  
  if (xhr.readyState == 4 && xhr.status == 200) {
 
@@ -44,7 +54,7 @@ function processRequest(e) {
 // 	alert(response.weather.description);
  //	console.log(response.visibility);
  //	console.log(response.name);
- } 
+} 
 
  else if (xhr.readyState !== 4 && xhr.status !== 200){
 
@@ -52,6 +62,11 @@ function processRequest(e) {
  	document.querySelector(".errorp").innerHTML = "There is an error!";
  }
  
+}
+}
+} else if (gpsStatus = false) {
+
+	alert("No GPS data!");
 }
 }
 
