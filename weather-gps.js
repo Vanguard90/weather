@@ -56,7 +56,7 @@ if (gpsStatus = true){
  //	console.log(response.name);
 } 
 
- else if (xhr.readyState !== 4 && xhr.status !== 200){
+ else if (xhr.readyState == 0 && xhr.status !== 200){
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";

@@ -15,7 +15,7 @@ console.log(plainxhr.status);
 
 function processRequest(e) {
  
- if (plainxhr.readyState == 4 && plainxhr.status == 200) {
+ if (plainxhr.readyState === 4 && plainxhr.status === 200) {
 
  	console.log("Passed if in processrequest")
  	let response = JSON.parse(plainxhr.responseText);
@@ -27,9 +27,7 @@ function processRequest(e) {
 // 	alert(response.weather.description);
  //	console.log(response.visibility);
  //	console.log(response.name);
- } 
-
- else if (plainxhr.readyState !== 4 && plainxhr.status !== 200){
+ } else if (plainxhr.readyState == 0 && plainxhr.status !== 200){
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";
