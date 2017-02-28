@@ -51,9 +51,28 @@ if (gpsStatus = true){
  	temperature = Math.round(temperature);
  	temperature = temperature + " ℃";
  	console.log(temperature);
-// 	alert(response.weather.description);
- //	console.log(response.visibility);
- //	console.log(response.name);
+ 	let weatherType;
+ 	let weatherTypeDetail;
+ 	for (i = 0; i < (response.weather).length; i++) {
+ 		weatherType = response.weather[i].main;
+ 		watherTypeDetail = response.weather[i].description;
+ 	}
+ 	//Problem with response weather!!!
+ 	console.log(weatherType);
+ 	console.log(weatherTypeDetail);
+ 	let sunrise = response.sys.sunrise;
+ 	let sunset = response.sys.sunset;
+ 	console.log(sunrise);
+ 	console.log(sunset);
+ 	let sunriseDate = new Date(sunrise*1000);
+ 	let sunsetDate = new Date(sunset*1000);
+ 	sunriseDate = `0${sunriseDate.getHours()}:${sunriseDate.getMinutes()}:${sunriseDate.getSeconds()}`
+ 	sunsetDate =  `${sunsetDate.getHours()}:${sunsetDate.getMinutes()}:${sunsetDate.getSeconds()}`
+ 	console.log(sunriseDate);
+ 	console.log(sunsetDate);
+ 	let locationName = response.name;
+ 	console.log(locationName);
+ 
 } 
 
  else if (xhr.readyState == 0 && xhr.status !== 200){
