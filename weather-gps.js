@@ -55,9 +55,8 @@ if (gpsStatus = true){
  	let weatherTypeDetail;
  	for (i = 0; i < (response.weather).length; i++) {
  		weatherType = response.weather[i].main;
- 		watherTypeDetail = response.weather[i].description;
+ 		weatherTypeDetail = response.weather[i].description;
  	}
- 	//Problem with response weather!!!
  	console.log(weatherType);
  	console.log(weatherTypeDetail);
  	let sunrise = response.sys.sunrise;
