@@ -20,7 +20,7 @@ function processRequest(e) {
  	console.log("Passed if in processrequest")
  	let response = JSON.parse(plainxhr.responseText);
  	console.log(response);
- 	let temperature = (response.main.temp) - 273;
+ 	let temperature = (response.main.temp);
  	temperature = Math.round(temperature);
  	temperature = temperature + " ℃";
  	console.log(temperature);
@@ -45,6 +45,8 @@ function processRequest(e) {
  	console.log(sunsetDate);
  	let locationName = response.name;
  	console.log(locationName);
+ 	let cloudiness =`%${response.clouds.all} cloudiness`;
+ 	console.log(cloudiness);
 
  } else if (plainxhr.readyState == 0 && plainxhr.status !== 200){
 

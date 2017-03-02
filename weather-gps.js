@@ -11,7 +11,7 @@ function successFunction(position) {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
     console.log('Your latitude is :'+lat+' and longitude is '+long);
-    connLink = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=c364db0444ad3c687cf51fa2244afe1e`;
+    connLink = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
     console.log(connLink);
     gpsStatus = true;
 }
@@ -47,7 +47,7 @@ if (gpsStatus = true){
  	console.log("Passed if in processrequest")
  	let response = JSON.parse(xhr.responseText);
  	console.log(response);
- 	let temperature = (response.main.temp) - 273;
+ 	let temperature = (response.main.temp);
  	temperature = Math.round(temperature);
  	temperature = temperature + " ℃";
  	console.log(temperature);
@@ -72,10 +72,10 @@ if (gpsStatus = true){
  	console.log(sunsetDate);
  	let locationName = response.name;
  	console.log(locationName);
+ 	let cloudiness =`%${response.clouds.all} cloudiness`;
+ 	console.log(cloudiness);
  
-} 
-
- else if (xhr.readyState == 0 && xhr.status !== 200){
+} else if (xhr.readyState == 0 && xhr.status !== 200){
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";
