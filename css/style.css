@@ -15,17 +15,39 @@ time, mark, audio, video {
   padding: 0 0 0 0;
   line-height: 1; }
 
-main {
-  max-width: 960px;
-  display: flex;
-  margin: 10% auto;
-  flex-direction: column; }
-  main div {
+body {
+  background-color: #EEE; }
+  body main {
+    max-width: 960px;
     display: flex;
-    align-self: center; }
-  main h1 {
-    font-size: 32px;
-    font-family: sans-serif;
-    padding-bottom: 20px; }
+    margin: 10% auto;
+    flex-direction: column; }
+    body main .form-area {
+      width: 60%;
+      background-color: lightskyblue;
+      border-radius: 25px;
+      padding: 20px 0; }
+    body main div {
+      display: flex;
+      align-self: center;
+      flex-direction: column; }
+      body main div form {
+        padding-bottom: 10px; }
+      body main div button {
+        background-color: #032e49;
+        border-radius: 5px;
+        border-color: #032e49;
+        color: #EEE;
+        padding: 5px 5px; }
+      body main div button:hover {
+        background-color: #065c92; }
+    body main h1 {
+      font-size: 32px;
+      font-family: sans-serif;
+      padding-bottom: 20px;
+      color: #555; }
+    body main .errorp {
+      align-self: center;
+      padding: 10px 0; }
 
 /*# sourceMappingURL=style.css.map */
