@@ -3,13 +3,15 @@ let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, fa
 
 function plainClickEvent (process) {
 
+let locationName = document.querySelector('#locationname').value;
+connLinkPlain = `http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
+
 let plainxhr = new XMLHttpRequest();
 plainxhr.addEventListener("readystatechange", processRequest, false);
 plainxhr.onreadystatechange = processRequest;
-plainxhr.open("GET", connLink, true);
+plainxhr.open("GET", connLinkPlain, true);
 plainxhr.send();
 
-connLink = "http://api.openweathermap.org/data/2.5/weather?q=Eindhoven&APPID=c364db0444ad3c687cf51fa2244afe1e"
 console.log(plainxhr.status);
 //console.log(xhr.statusText);
 
@@ -36,10 +38,22 @@ function processRequest(e) {
  	let sunset = response.sys.sunset;
  	console.log(sunrise);
  	console.log(sunset);
- 	let sunriseDate = new Date(sunrise*1000);
+  	let sunriseDate = new Date(sunrise*1000);
  	let sunsetDate = new Date(sunset*1000);
- 	sunriseDate = `0${sunriseDate.getHours()}:${sunriseDate.getMinutes()}:${sunriseDate.getSeconds()}`
- 	sunsetDate =  `${sunsetDate.getHours()}:${sunsetDate.getMinutes()}:${sunsetDate.getSeconds()}`
+ 	let sunriseDateHour = sunriseDate.getHours();
+ 	if (sunriseDateHour < 10 ) {sunriseDateHour = "0" + sunriseDateHour};
+ 	let sunriseDateMinute = sunriseDate.getMinutes();
+ 	if (sunriseDateMinute < 10 ) {sunriseDateMinute = "0" + sunriseDateMinute};
+ 	let sunriseDateSecond = sunriseDate.getSeconds();
+ 	if (sunriseDateSecond < 10 ) {sunriseDateSecond = "0" + sunriseDateSecond};
+ 	sunriseDate = sunriseDateHour + ':' + sunriseDateMinute + ':' + sunriseDateSecond;
+ 	let sunsetDateHour = sunsetDate.getHours();
+ 	if (sunsetDateHour < 10 ) {sunsetDateHour = "0" + sunsetDateHour};
+ 	let sunsetDateMinute = sunsetDate.getMinutes();
+ 	if (sunsetDateMinute < 10 ) {sunsetDateMinute = "0" + sunsetDateMinute};
+ 	let sunsetDateSecond = sunsetDate.getSeconds();
+ 	if (sunsetDateSecond < 10 ) {sunsetDateSecond = "0" + sunsetDateSecond};
+ 	sunsetDate = sunsetDateHour + ':' + sunsetDateMinute + ':' + sunsetDateSecond;
  	console.log(sunriseDate);
  	console.log(sunsetDate);
  	let locationName = response.name;
