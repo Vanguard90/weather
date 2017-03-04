@@ -1,6 +1,10 @@
 let plainbutton = document.querySelector(".plaintext");
 let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, false);
 
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+} //Capitalize function
+
 function plainClickEvent (process) {
 
 let locationName = document.querySelector('#locationname').value;
@@ -13,40 +17,38 @@ plainxhr.open("GET", connLinkPlain, true);
 plainxhr.send();
 
 console.log(plainxhr.status);
-//console.log(xhr.statusText);
 
 function processRequest(e) {
  
  if (plainxhr.readyState === 4 && plainxhr.status === 200) {
-
+//Most of the variables declared on default.
  	console.log("Passed if in processrequest")
  	let response = JSON.parse(plainxhr.responseText);
  	console.log(response);
- 	let temperature = (response.main.temp);
+ 	temperature = (response.main.temp);
  	temperature = Math.round(temperature);
  	temperature = temperature + " ℃";
  	console.log(temperature);
- 	let weatherType;
- 	let weatherTypeDetail;
 	for (i = 0; i < (response.weather).length; i++) {
  		weatherType = response.weather[i].main;
  		weatherTypeDetail = response.weather[i].description;
  	}
  	console.log(weatherType);
+ 	weatherTypeDetail = weatherTypeDetail.capitalize();
  	console.log(weatherTypeDetail);
- 	let sunrise = response.sys.sunrise;
- 	let sunset = response.sys.sunset;
+ 	sunrise = response.sys.sunrise;
+ 	sunset = response.sys.sunset;
  	console.log(sunrise);
  	console.log(sunset);
-  	let sunriseDate = new Date(sunrise*1000);
- 	let sunsetDate = new Date(sunset*1000);
+  	sunriseDate = new Date(sunrise*1000);
+ 	sunsetDate = new Date(sunset*1000);
  	let sunriseDateHour = sunriseDate.getHours();
  	if (sunriseDateHour < 10 ) {sunriseDateHour = "0" + sunriseDateHour};
  	let sunriseDateMinute = sunriseDate.getMinutes();
  	if (sunriseDateMinute < 10 ) {sunriseDateMinute = "0" + sunriseDateMinute};
  	let sunriseDateSecond = sunriseDate.getSeconds();
  	if (sunriseDateSecond < 10 ) {sunriseDateSecond = "0" + sunriseDateSecond};
- 	sunriseDate = sunriseDateHour + ':' + sunriseDateMinute + ':' + sunriseDateSecond;
+ 	sunriseDate = `${sunriseDateHour}:${sunriseDateMinute}:${sunriseDateSecond}`;
  	let sunsetDateHour = sunsetDate.getHours();
  	if (sunsetDateHour < 10 ) {sunsetDateHour = "0" + sunsetDateHour};
  	let sunsetDateMinute = sunsetDate.getMinutes();
@@ -56,12 +58,12 @@ function processRequest(e) {
  	sunsetDate = sunsetDateHour + ':' + sunsetDateMinute + ':' + sunsetDateSecond;
  	console.log(sunriseDate);
  	console.log(sunsetDate);
- 	let locationName = response.name;
+ 	locationName = response.name;
  	console.log(locationName);
- 	let cloudiness =`%${response.clouds.all} cloudiness`;
+ 	cloudiness =`%${response.clouds.all} cloudiness`;
  	console.log(cloudiness);
 
- } else if (plainxhr.readyState == 0 && plainxhr.status !== 200){
+ } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";
