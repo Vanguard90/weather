@@ -33,6 +33,7 @@ main {
 	background-color: rgb(135,206,250);
 	border-radius: 25px;
 	padding: 20px 0;
+	margin-bottom: 30px;
 	}
 
 	div {
@@ -67,11 +68,25 @@ main {
 		font-family: sans-serif;
 		padding-bottom: 20px;
 		color: #555;
+		line-height: 1.4;
 	}
 
 	.errorp {
 		align-self: center;
 		padding: 10px 0;
+	}
+
+	.currentweather {
+		width: 95%;
+		padding: 0 2.5% 0 2.5%;
+
+		h2, h3, p {
+
+			padding-bottom: 10px;
+			font-family: sans-serif;
+			line-height: 1.4;
+
+		}
 	}
 }
 }

@@ -60,8 +60,10 @@ function processRequest(e) {
  	console.log(sunsetDate);
  	locationName = response.name;
  	console.log(locationName);
- 	cloudiness =`%${response.clouds.all} cloudiness`;
+ 	cloudiness =`%${response.clouds.all}`;
  	console.log(cloudiness);
+ 	weatherId = response.weather.id;
+ 	console.log(weatherId);
 
  } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
 

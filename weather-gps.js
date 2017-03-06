@@ -51,7 +51,7 @@ if (gpsStatus = true){
  	console.log(response);
  	temperature = (response.main.temp);
  	temperature = Math.round(temperature);
- 	temperature = temperature + " ℃";
+ 	temperature = temperature + "&#8451";
  	console.log(temperature);
  	for (i = 0; i < (response.weather).length; i++) {
  		weatherType = response.weather[i].main;
@@ -84,13 +84,17 @@ if (gpsStatus = true){
  	console.log(sunsetDate);
  	locationName = response.name;
  	console.log(locationName);
- 	cloudiness =`%${response.clouds.all} cloudiness`;
+ 	cloudiness =`%${response.clouds.all}`;
  	console.log(cloudiness);
+ 	processStatus = true;
+ 	weatherId = response.weather.id;
+ 	console.log(weatherId);//Something wrong here.
  
 } else if (xhr.readyState == 0 || xhr.status !== 200){
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";
+ 	processStatus = false;
  }
  
 }
@@ -98,7 +102,30 @@ if (gpsStatus = true){
 } else if (gpsStatus = false) {
 
 	alert("No GPS data!");
+	processStatus = false;
 }
+
+setTimeout(markupResult, 0500);
+
+function markupResult(){
+
+
+
+if (processStatus = true) {
+
+	currentWeatherBody = document.querySelector(".currentweather");
+	markup = ` <div><h2>Your location is '${locationName}'</h2></div>
+	<div><h3>Temperature is ${temperature}</h3></div>
+	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
+	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
+	<div><p>Sun rises at ${sunriseDate}</p></div>
+	<div><p>Sun sets at ${sunsetDate}</p></div>
+	`;
+	currentWeatherBody.innerHTML = markup;
+}
+
+}
+
 }
 
 /* if receiveddata != null, then formentry.text = variable. Variable to be used at the GET request.*/

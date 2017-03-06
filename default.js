@@ -11,3 +11,9 @@ let sunriseDate;
 let sunsetDate;
 let locationName;
 let cloudiness;
+let weatherId;
+//Flow checker variable
+let processStatus;
+
+//HTML area for results
+let markup;
