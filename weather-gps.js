@@ -11,9 +11,10 @@ if (navigator.geolocation) {
 }
 
 function successFunction(position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    console.log('Your latitude is :'+lat+' and longitude is '+long);
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    latlong = 'Your latitude is '+lat+' and longitude is '+long;
+    console.log('Your latitude is '+lat+' and longitude is '+long);
     connLinkGps = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
     console.log(connLinkGps);
     gpsStatus = true;
@@ -120,12 +121,11 @@ if (processStatus = true) {
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
 	<div><p>Sun rises at ${sunriseDate}</p></div>
 	<div><p>Sun sets at ${sunsetDate}</p></div>
+	<div><p><a href="http://maps.google.com/?q=${lat},${long}">${latlong}</a></p></div>
 	`;
 	currentWeatherBody.innerHTML = markup;
 }
-
 }
-
 }
 
 /* if receiveddata != null, then formentry.text = variable. Variable to be used at the GET request.*/
