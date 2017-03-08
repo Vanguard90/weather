@@ -62,14 +62,35 @@ function processRequest(e) {
  	console.log(locationName);
  	cloudiness =`%${response.clouds.all}`;
  	console.log(cloudiness);
+ 	processStatus = true;
  	weatherId = response.weather.id;
- 	console.log(weatherId);
+ 	console.log(weatherId);//Something wrong here.
 
  } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";
+ 	processStatus = false;
  }
+
+ setTimeout(markupResult, 0500);
+
+function markupResult(){
+
+if (processStatus = true) {
+
+	currentWeatherBody = document.querySelector(".currentweather");
+	markup = ` <div><h2>Your location is '${locationName}'</h2></div>
+	<div><h3>Temperature is ${temperature}</h3></div>
+	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
+	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
+	<div><p>Sun rises at ${sunriseDate}</p></div>
+	<div><p>Sun sets at ${sunsetDate}</p></div>
+	`;
+	currentWeatherBody.innerHTML = markup;
+}
+
+}
  
 }
 }
