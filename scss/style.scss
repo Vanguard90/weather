@@ -24,10 +24,9 @@ body {
 .video {
 
 	z-index: -1;
-	max-width: 140%;
+	width: 100%;
 	max-height: 100%;
 	object-fit: cover;
-	background-size: cover;
 	position: absolute;
 
 }
@@ -114,10 +113,37 @@ body {
 
 .video {
 
+	height: 1000px;
 	object-fit: cover;
 	background-size: cover;
 	max-width: initial;
 	max-height: initial;
+
+}
+}
+
+}
+
+@media (max-width: 701px) {
+
+body {
+
+.video {
+
+	height: 700px;
+
+}
+}
+
+}
+
+@media (max-width: 451px) {
+
+body {
+
+.video {
+
+	height: 800px;
 
 }
 }
