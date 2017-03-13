@@ -19,13 +19,15 @@ time, mark, audio, video {
 body {
 
 	background-color: #EEE;
+	overflow-x: hidden;
 
 .video {
 
 	z-index: -1;
-	width: 100%;
+	max-width: 140%;
 	max-height: 100%;
 	object-fit: cover;
+	background-size: cover;
 	position: absolute;
 
 }
@@ -35,7 +37,7 @@ main {
 	max-width: 960px;
 	display: flex;
 	margin: 0 auto;
-	padding: 10% 0;
+	padding: 10% 0 5% 0;
 	flex-direction: column;
 	z-index: 2;
 
@@ -61,16 +63,16 @@ main {
 
 		button {
 
-			background-color:  rgb(3,46,73);
+			background-color:  rgb(255,174,27);
 			border-radius: 5px;
-			border-color: rgb(3,46,73);
-			color: #EEE;
+			border-color: rgb(255,174,27);
+			color: rgb(26,26,26);
 			padding: 5px 5px;
 		}
 
 		button:hover {
 
-		background-color:  rgb(6,92,146);	
+		background-color:  rgb(255,201,103);
 		}
 	}
 
@@ -79,6 +81,7 @@ main {
 		font-size: 32px;
 		font-family: Cambria, Helvetica, sans-serif;
 		padding-bottom: 20px;
+		padding-top: 20px;
 		color: rgb(26,26,26);
 		line-height: 1.4;
 	}
@@ -89,8 +92,10 @@ main {
 	}
 
 	.currentweather {
-		width: 95%;
+		width: 60%;
 		padding: 0 2.5% 0 2.5%;
+		background-color: rgba(238, 239, 255,0.4);
+		border-radius: 25px;
 
 		h2, h3, p {
 
@@ -101,4 +106,20 @@ main {
 		}
 	}
 }
+}
+
+@media (max-width: 961px) {
+
+body {
+
+.video {
+
+	object-fit: cover;
+	background-size: cover;
+	max-width: initial;
+	max-height: initial;
+
+}
+}
+
 }

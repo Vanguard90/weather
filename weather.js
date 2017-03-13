@@ -80,7 +80,7 @@ function markupResult(){
 if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
-	markup = ` <div><h2>Your location is '${locationName}'</h2></div>
+	markup = ` <div><h2>Weather data for ${locationName}</h2></div>
 	<div><h3>Temperature is ${temperature}</h3></div>
 	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>

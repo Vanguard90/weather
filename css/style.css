@@ -16,18 +16,20 @@ time, mark, audio, video {
   line-height: 1; }
 
 body {
-  background-color: #EEE; }
+  background-color: #EEE;
+  overflow-x: hidden; }
   body .video {
     z-index: -1;
-    width: 100%;
+    max-width: 140%;
     max-height: 100%;
     object-fit: cover;
+    background-size: cover;
     position: absolute; }
   body main {
     max-width: 960px;
     display: flex;
     margin: 0 auto;
-    padding: 10% 0;
+    padding: 10% 0 5% 0;
     flex-direction: column;
     z-index: 2; }
     body main .form-area {
@@ -43,28 +45,38 @@ body {
       body main div form {
         padding-bottom: 10px; }
       body main div button {
-        background-color: #032e49;
+        background-color: #ffae1b;
         border-radius: 5px;
-        border-color: #032e49;
-        color: #EEE;
+        border-color: #ffae1b;
+        color: #1a1a1a;
         padding: 5px 5px; }
       body main div button:hover {
-        background-color: #065c92; }
+        background-color: #ffc967; }
     body main h1 {
       font-size: 32px;
       font-family: Cambria, Helvetica, sans-serif;
       padding-bottom: 20px;
+      padding-top: 20px;
       color: #1a1a1a;
       line-height: 1.4; }
     body main .errorp {
       align-self: center;
       padding: 10px 0; }
     body main .currentweather {
-      width: 95%;
-      padding: 0 2.5% 0 2.5%; }
+      width: 60%;
+      padding: 0 2.5% 0 2.5%;
+      background-color: rgba(238, 239, 255, 0.4);
+      border-radius: 25px; }
       body main .currentweather h2, body main .currentweather h3, body main .currentweather p {
         padding-bottom: 10px;
         font-family: Cambria, Helvetica, sans-serif;
         line-height: 1.4; }
+
+@media (max-width: 961px) {
+  body .video {
+    object-fit: cover;
+    background-size: cover;
+    max-width: initial;
+    max-height: initial; } }
 
 /*# sourceMappingURL=style.css.map */
