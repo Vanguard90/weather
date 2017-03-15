@@ -59,7 +59,6 @@ if (gpsStatus = true){
  		weatherTypeDetail = response.weather[i].description;
  	}
  	console.log(weatherType);
- 	weatherTypeDetail = weatherTypeDetail.capitalize();
  	console.log(weatherTypeDetail);
  	sunrise = response.sys.sunrise;
  	sunset = response.sys.sunset;
@@ -106,11 +105,11 @@ if (gpsStatus = true){
 	processStatus = false;
 }
 
+
+
 setTimeout(markupResult, 0500);
 
 function markupResult(){
-
-
 
 if (processStatus = true) {
 

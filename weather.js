@@ -34,7 +34,6 @@ function processRequest(e) {
  		weatherTypeDetail = response.weather[i].description;
  	}
  	console.log(weatherType);
- 	weatherTypeDetail = weatherTypeDetail.capitalize();
  	console.log(weatherTypeDetail);
  	sunrise = response.sys.sunrise;
  	sunset = response.sys.sunset;
