@@ -87,8 +87,14 @@ if (gpsStatus = true){
  	cloudiness =`%${response.clouds.all}`;
  	console.log(cloudiness);
  	processStatus = true;
- 	weatherId = response.weather.id;
- 	console.log(weatherId);//Something wrong here.
+ 	weatherId = response.weather;
+ 	weatherId = weatherId.find(x => x.id);
+ 	weatherId = weatherId.id;
+ 	weatherId = weatherId.toString();
+ 	weatherIndex = weatherId.charAt(0);
+ 	console.log(weatherId);
+ 	console.log(weatherIndex);
+ 	setTimeout(markupResult,0500);
  
 } else if (xhr.readyState == 0 || xhr.status !== 200){
 
@@ -104,10 +110,7 @@ if (gpsStatus = true){
 	alert("No GPS data!");
 	processStatus = false;
 }
-
-
-
-setTimeout(markupResult, 0500);
+}
 
 function markupResult(){
 
@@ -123,7 +126,6 @@ if (processStatus = true) {
 	<div><p><a href="http://maps.google.com/?q=${lat},${long}">${latlong}</a></p></div>
 	`;
 	currentWeatherBody.innerHTML = markup;
-}
 }
 }
 

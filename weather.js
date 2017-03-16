@@ -7,7 +7,7 @@ String.prototype.capitalize = function() {
 
 function plainClickEvent (process) {
 
-let locationName = document.querySelector('#locationname').value;
+locationName = document.querySelector('#locationname').value;
 connLinkPlain = `http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
 
 let plainxhr = new XMLHttpRequest();
@@ -62,8 +62,14 @@ function processRequest(e) {
  	cloudiness =`%${response.clouds.all}`;
  	console.log(cloudiness);
  	processStatus = true;
- 	weatherId = response.weather.id;
- 	console.log(weatherId);//Something wrong here.
+ 	weatherId = response.weather;
+ 	weatherId = weatherId.find(x => x.id);
+ 	weatherId = weatherId.id;
+ 	weatherId = weatherId.toString();
+ 	weatherIndex = weatherId.charAt(0);
+ 	console.log(weatherId);
+ 	console.log(weatherIndex);
+ 	setTimeout(markupResult,0500);
 
  } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
 
@@ -71,15 +77,16 @@ function processRequest(e) {
  	document.querySelector(".errorp").innerHTML = "There is an error!";
  	processStatus = false;
  }
-
- setTimeout(markupResult, 0500);
+ 
+}
+}
 
 function markupResult(){
 
 if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
-	markup = ` <div><h2>Weather data for ${locationName}</h2></div>
+	markup = `<div><h2>Weather data for '${locationName}'</h2></div>
 	<div><h3>Temperature is ${temperature}</h3></div>
 	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
@@ -87,10 +94,6 @@ if (processStatus = true) {
 	<div><p>Sun sets at ${sunsetDate}</p></div>
 	`;
 	currentWeatherBody.innerHTML = markup;
-}
-
-}
- 
 }
 }
 

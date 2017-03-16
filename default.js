@@ -16,6 +16,7 @@ let sunsetDate;
 let locationName;
 let cloudiness;
 let weatherId;
+let weatherIndex;
 //Flow checker variable
 let processStatus;
 
