@@ -21,7 +21,7 @@ body {
   body .video {
     z-index: -1;
     width: 100%;
-    max-height: 100%;
+    min-height: 100%;
     object-fit: cover;
     position: absolute; }
   body main {
@@ -69,6 +69,8 @@ body {
       padding: 0 2.5% 0 2.5%;
       background-color: rgba(238, 239, 255, 0.4);
       border-radius: 25px; }
+      body main .currentweather div h2 {
+        padding-top: 5px; }
       body main .currentweather h2, body main .currentweather h3, body main .currentweather p {
         padding-bottom: 10px;
         font-family: Cambria, Helvetica, sans-serif;
