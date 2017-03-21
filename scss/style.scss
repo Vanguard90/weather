@@ -36,7 +36,7 @@ main {
 	max-width: 960px;
 	display: flex;
 	margin: 0 auto;
-	padding: 10% 0 5% 0;
+	padding: 5% 0 5% 0;
 	flex-direction: column;
 	z-index: 2;
 
@@ -45,7 +45,7 @@ main {
 	width: 60%;
 	background-color: rgba(238, 239, 255,0.4);
 	border-radius: 25px;
-	padding: 20px 0;
+	padding: 0 0 20px 0;
 	margin-bottom: 30px;
 	}
 
@@ -58,6 +58,11 @@ main {
 		form {
 
 			padding-bottom: 10px;
+
+			.input-text {
+
+				display: inline;
+			}
 		}
 
 		button {
@@ -83,6 +88,7 @@ main {
 		padding-top: 20px;
 		color: rgb(26,26,26);
 		line-height: 1.4;
+		align-self: center;
 	}
 
 	.errorp {
@@ -101,6 +107,7 @@ main {
 			padding-bottom: 10px;
 			font-family: Cambria, Helvetica, sans-serif;
 			line-height: 1.4;
+			text-align: center;
 
 		}
 	}
@@ -120,6 +127,15 @@ body {
 	max-height: initial;
 
 }
+
+	main {
+
+		.currentweather {
+
+		width: 80%;
+
+		}
+	}
 }
 
 }
@@ -133,8 +149,32 @@ body {
 	height: 700px;
 
 }
+
+main {
+
+	.form-area {
+
+	width: 80%;
+	}
+
+	div {
+
+		form {
+
+			padding-bottom: 15px;
+
+			.input-text {
+
+				font-family: Cambria, Helvetica, sans-serif;
+				display: block;
+				padding-bottom: 5px;
+			}
+		}
+	}
+
 }
 
+}
 }
 
 @media (max-width: 451px) {
@@ -146,6 +186,24 @@ body {
 	height: 800px;
 
 }
-}
 
+	main {
+
+		h1 {
+
+			font-size: 28px;
+		}
+
+		.form-area {
+
+		width: 90%;
+		}
+
+		.currentweather {
+
+		width: 90%;
+
+		}
+	}
+}
 }

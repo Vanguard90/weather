@@ -28,14 +28,14 @@ body {
     max-width: 960px;
     display: flex;
     margin: 0 auto;
-    padding: 10% 0 5% 0;
+    padding: 5% 0 5% 0;
     flex-direction: column;
     z-index: 2; }
     body main .form-area {
       width: 60%;
       background-color: rgba(238, 239, 255, 0.4);
       border-radius: 25px;
-      padding: 20px 0;
+      padding: 0 0 20px 0;
       margin-bottom: 30px; }
     body main div {
       display: flex;
@@ -43,6 +43,8 @@ body {
       flex-direction: column; }
       body main div form {
         padding-bottom: 10px; }
+        body main div form .input-text {
+          display: inline; }
       body main div button {
         background-color: #ffae1b;
         border-radius: 5px;
@@ -57,7 +59,8 @@ body {
       padding-bottom: 20px;
       padding-top: 20px;
       color: #1a1a1a;
-      line-height: 1.4; }
+      line-height: 1.4;
+      align-self: center; }
     body main .errorp {
       align-self: center;
       padding: 10px 0; }
@@ -69,7 +72,8 @@ body {
       body main .currentweather h2, body main .currentweather h3, body main .currentweather p {
         padding-bottom: 10px;
         font-family: Cambria, Helvetica, sans-serif;
-        line-height: 1.4; }
+        line-height: 1.4;
+        text-align: center; }
 
 @media (max-width: 961px) {
   body .video {
@@ -77,12 +81,28 @@ body {
     object-fit: cover;
     background-size: cover;
     max-width: initial;
-    max-height: initial; } }
+    max-height: initial; }
+  body main .currentweather {
+    width: 80%; } }
 @media (max-width: 701px) {
   body .video {
-    height: 700px; } }
+    height: 700px; }
+  body main .form-area {
+    width: 80%; }
+  body main div form {
+    padding-bottom: 15px; }
+    body main div form .input-text {
+      font-family: Cambria, Helvetica, sans-serif;
+      display: block;
+      padding-bottom: 5px; } }
 @media (max-width: 451px) {
   body .video {
-    height: 800px; } }
+    height: 800px; }
+  body main h1 {
+    font-size: 28px; }
+  body main .form-area {
+    width: 90%; }
+  body main .currentweather {
+    width: 90%; } }
 
 /*# sourceMappingURL=style.css.map */
