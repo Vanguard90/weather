@@ -47,7 +47,7 @@ if (gpsStatus = true){
  
  if (xhr.readyState == 4 && xhr.status == 200) {
 //Most of the variables declared on default.
- 	console.log("Passed if in processrequest")
+ 	console.log("Passed if in processrequest");
  	let response = JSON.parse(xhr.responseText);
  	console.log(response);
  	temperature = (response.main.temp);
@@ -92,13 +92,13 @@ if (gpsStatus = true){
  	weatherId = weatherId.id;
  	weatherId = weatherId.toString();
  	weatherIndex = weatherId.charAt(0);
- 	weatherIndex = 2;
  	console.log(weatherId);
  	console.log(weatherIndex);
  	setTimeout(markupResult,0500);
+ 	skyCheck();
  	rainCheck();
  
-} else if (xhr.readyState == 0 || xhr.status !== 200){
+} else if (xhr.readyState == 0 && xhr.status !== 200){
 
  	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error!";

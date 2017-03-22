@@ -28,6 +28,20 @@ let windowWidth = parseInt(window.innerWidth);
 
 let videoBackground = document.querySelector(".video");
 let videoSource = document.querySelector(".video-source");
+//For content background transition
+let currentWeather = document.querySelector(".currentweather");
+let topWeather = document.querySelector(".form-area");
+
+function skyCheck(){
+
+if ((weatherIndex != 2) && (weatherIndex != 3) && (weatherIndex != 5)) {
+
+videoBackground.poster = "img/video/sky-thumbnail-1920x1080.jpg";
+videoBackground.pause();
+videoBackground.removeChild(videoSource);
+videoBackground.innerHTML = `<source class="video-source" src="img/video/sky-background.mp4" type="video/mp4">`;
+videoSource = document.querySelector(".video-source");
+videoActivator();
 
 if (960 < windowWidth && windowWidth < 1367) {
 
@@ -62,21 +76,25 @@ videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
 videoActivator();
 }
+}
+currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.4)";
+topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.4)";
+}
 
 function rainCheck() {
 
-if (weatherIndex = 2 || 3 || 5) {
+if ((weatherIndex == 2) || (weatherIndex == 3) || (weatherIndex == 5)) {
 
-videoBackground.poster = "img/video/raindrops-1920x1080.jpg";
+videoBackground.poster = "img/video/raindrops-1920x1080-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/raindrops-1920x1080-minified.mp4" type="video/mp4">`;
-//Refeclaring videoSource to update the variable so that it can be grabbed. 
+//Redeclaring videoSource to update the variable so that it can be grabbed later. 
 videoSource = document.querySelector(".video-source");
 
 if (960 < windowWidth && windowWidth < 1367) {
 
-videoBackground.poster = "img/video/raindrops-1366x768.jpg";
+videoBackground.poster = "img/video/raindrops-1366x768-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/raindrops-1366x768-minified.mp4" type="video/mp4">`;
@@ -84,7 +102,7 @@ videoSource = document.querySelector(".video-source");
 
 } else if (700 < windowWidth && windowWidth < 961) {
 
-videoBackground.poster = "img/video/sky-thumbnail-960x1000.jpg";
+videoBackground.poster = "img/video/raindrops-960x1000-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/sky-background-960x1000.mp4" type="video/mp4">`;
@@ -92,19 +110,21 @@ videoSource = document.querySelector(".video-source");
 
 } else if (450 < windowWidth && windowWidth < 701) {
 
-videoBackground.poster = "img/video/sky-thumbnail-700x700.jpg";
+videoBackground.poster = "img/video/raindrops-700x700-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
 
 } else if (450 >= windowWidth) {
 
-videoBackground.poster = "img/video/sky-thumbnail-450x800.jpg";
+videoBackground.poster = "img/video/raindrops-450x800-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
 }
 }
+currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
+topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
 videoActivator();
 }
 
