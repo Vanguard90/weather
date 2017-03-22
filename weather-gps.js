@@ -92,9 +92,11 @@ if (gpsStatus = true){
  	weatherId = weatherId.id;
  	weatherId = weatherId.toString();
  	weatherIndex = weatherId.charAt(0);
+ 	weatherIndex = 2;
  	console.log(weatherId);
  	console.log(weatherIndex);
  	setTimeout(markupResult,0500);
+ 	rainCheck();
  
 } else if (xhr.readyState == 0 || xhr.status !== 200){
 
@@ -117,7 +119,7 @@ function markupResult(){
 if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
-	markup = ` <div><h2>Your location is '${locationName}'</h2></div>
+	markup = `<div><h2>Your location is '${locationName}'</h2></div>
 	<div><h3>Temperature is ${temperature}</h3></div>
 	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
@@ -128,6 +130,8 @@ if (processStatus = true) {
 	currentWeatherBody.innerHTML = markup;
 }
 }
+
+//If connlinkGps not defined, show explanation. If connlink not defined, show explanation.
 
 /* if receiveddata != null, then formentry.text = variable. Variable to be used at the GET request.*/
 

@@ -67,9 +67,11 @@ function processRequest(e) {
  	weatherId = weatherId.id;
  	weatherId = weatherId.toString();
  	weatherIndex = weatherId.charAt(0);
+ 	//weatherIndex = 2;
  	console.log(weatherId);
  	console.log(weatherIndex);
  	setTimeout(markupResult,0500);
+ 	rainCheck();
 
  } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
 
