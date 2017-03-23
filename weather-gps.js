@@ -59,6 +59,7 @@ if (gpsStatus = true){
  		weatherTypeDetail = response.weather[i].description;
  	}
  	console.log(weatherType);
+ 	weatherTypeDetail = weatherTypeDetail.capitalize();
  	console.log(weatherTypeDetail);
  	sunrise = response.sys.sunrise;
  	sunset = response.sys.sunset;
@@ -84,7 +85,7 @@ if (gpsStatus = true){
  	console.log(sunsetDate);
  	locationName = response.name;
  	console.log(locationName);
- 	cloudiness =`%${response.clouds.all}`;
+ 	cloudiness =`${response.clouds.all}%`;
  	console.log(cloudiness);
  	processStatus = true;
  	weatherId = response.weather;
@@ -119,10 +120,9 @@ function markupResult(){
 if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
-	currentWeatherBody.innerHTML = " ";
 	markup = `<div><h2>Your location is '${locationName}'</h2></div>
 	<div><h3>Temperature is ${temperature}</h3></div>
-	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
+	<div><p>Weather status: ${weatherTypeDetail}</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
 	<div><p>Sun rises at ${sunriseDate}</p></div>
 	<div><p>Sun sets at ${sunsetDate}</p></div>
