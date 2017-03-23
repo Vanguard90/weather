@@ -73,6 +73,7 @@ function processRequest(e) {
  	setTimeout(markupResultPlain,0500);
  	skyCheck();
  	rainCheck();
+ 	snowCheck();
  } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
 
  	console.log("reached else in processrequest");

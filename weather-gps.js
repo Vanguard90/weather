@@ -98,7 +98,7 @@ if (gpsStatus = true){
  	setTimeout(markupResult,0500);
  	skyCheck();
  	rainCheck();
- 
+ 	snowCheck();
 } else if (xhr.readyState == 0 && xhr.status !== 200){
 
  	console.log("reached else in processrequest");

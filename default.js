@@ -1,6 +1,6 @@
 //Comm links to the API
 let connLink;
-let connLimkPlain;
+let connLinkPlain;
 //Gps-related variables
 let lat;
 let long;
@@ -34,7 +34,7 @@ let topWeather = document.querySelector(".form-area");
 
 function skyCheck(){
 
-if ((weatherIndex != 2) && (weatherIndex != 3) && (weatherIndex != 5)) {
+if ((weatherIndex != 2) && (weatherIndex != 3) && (weatherIndex != 5) && (weatherIndex != 6)) {
 
 videoBackground.poster = "img/video/sky-thumbnail-1920x1080.jpg";
 videoBackground.pause();
@@ -67,6 +67,7 @@ videoBackground.poster = "img/video/sky-thumbnail-700x700.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
+videoSource = document.querySelector(".video-source");
 videoActivator();
 } else if (450 >= windowWidth) {
 
@@ -74,6 +75,7 @@ videoBackground.poster = "img/video/sky-thumbnail-450x800.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
+videoSource = document.querySelector(".video-source");
 videoActivator();
 }
 }
@@ -86,6 +88,7 @@ function rainCheck() {
 if ((weatherIndex == 2) || (weatherIndex == 3) || (weatherIndex == 5)) {
 
 videoBackground.poster = "img/video/raindrops-1920x1080-minified.jpg";
+videoBackground.alt = "snow-background"
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/raindrops-1920x1080-minified.mp4" type="video/mp4">`;
@@ -114,6 +117,7 @@ videoBackground.poster = "img/video/raindrops-700x700-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
+videoSource = document.querySelector(".video-source");
 
 } else if (450 >= windowWidth) {
 
@@ -121,6 +125,56 @@ videoBackground.poster = "img/video/raindrops-450x800-minified.jpg";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
+videoSource = document.querySelector(".video-source");
+}
+}
+currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
+topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
+videoActivator();
+}
+
+function snowCheck() {
+
+if (weatherIndex == 6) {
+
+videoBackground.poster = "img/video/snow-background-1920x1080.jpg";
+videoBackground.pause();
+videoBackground.removeChild(videoSource);
+videoBackground.innerHTML = `<source class="video-source" src="img/video/snow-1920x1080-minified.mp4" type="video/mp4">`;
+//Redeclaring videoSource to update the variable so that it can be grabbed correctly later. 
+videoSource = document.querySelector(".video-source");
+
+if (960 < windowWidth && windowWidth < 1367) {
+
+videoBackground.poster = "img/video/snow-background-1366x768.jpg";
+videoBackground.pause();
+videoBackground.removeChild(videoSource);
+videoBackground.innerHTML = `<source class="video-source" src="img/video/snow-1366x768-minified.mp4" type="video/mp4">`;
+videoSource = document.querySelector(".video-source");
+
+} else if (700 < windowWidth && windowWidth < 961) {
+
+videoBackground.poster = "img/video/snow-background-960x1000.jpg";
+videoBackground.pause();
+videoBackground.removeChild(videoSource);
+videoBackground.innerHTML = `<source class="video-source" src="img/video/snow-960x1000-minified.mp4" type="video/mp4">`;
+videoSource = document.querySelector(".video-source");
+
+} else if (450 < windowWidth && windowWidth < 701) {
+
+videoBackground.poster = "img/video/snow-background-700x700.jpg";
+videoBackground.pause();
+videoBackground.removeChild(videoSource);
+videoBackground.innerHTML = '';
+videoSource = document.querySelector(".video-source");
+
+} else if (450 >= windowWidth) {
+
+videoBackground.poster = "img/video/snow-background-450x800.jpg";
+videoBackground.pause();
+videoBackground.removeChild(videoSource);
+videoBackground.innerHTML = '';
+videoSource = document.querySelector(".video-source");
 }
 }
 currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";

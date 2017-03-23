@@ -20,6 +20,7 @@ body {
 
 	background-color: #EEE;
 	overflow-x: hidden;
+	overflow-y: hidden;
 
 .video {
 
@@ -45,7 +46,7 @@ main {
 	width: 60%;
 	background-color: rgba(238, 239, 255,0.4);
 	border-radius: 25px;
-	padding: 0 0 20px 0;
+	padding: 0 5% 20px 5%;
 	margin-bottom: 30px;
 	}
 
@@ -98,7 +99,7 @@ main {
 
 	.currentweather {
 		width: 60%;
-		padding: 0 2.5% 0 2.5%;
+		padding: 0 5% 0 5%;
 		background-color: rgba(238, 239, 255,0.4);
 		border-radius: 25px;
 
@@ -125,6 +126,8 @@ main {
 @media (max-width: 961px) {
 
 body {
+
+	overflow-y: initial;
 
 .video {
 

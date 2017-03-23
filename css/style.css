@@ -17,7 +17,8 @@ time, mark, audio, video {
 
 body {
   background-color: #EEE;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  overflow-y: hidden; }
   body .video {
     z-index: -1;
     width: 100%;
@@ -35,7 +36,7 @@ body {
       width: 60%;
       background-color: rgba(238, 239, 255, 0.4);
       border-radius: 25px;
-      padding: 0 0 20px 0;
+      padding: 0 5% 20px 5%;
       margin-bottom: 30px; }
     body main div {
       display: flex;
@@ -66,7 +67,7 @@ body {
       padding: 10px 0; }
     body main .currentweather {
       width: 60%;
-      padding: 0 2.5% 0 2.5%;
+      padding: 0 5% 0 5%;
       background-color: rgba(238, 239, 255, 0.4);
       border-radius: 25px; }
       body main .currentweather div h2 {
@@ -78,14 +79,16 @@ body {
         text-align: center; }
 
 @media (max-width: 961px) {
-  body .video {
-    height: 1000px;
-    object-fit: cover;
-    background-size: cover;
-    max-width: initial;
-    max-height: initial; }
-  body main .currentweather {
-    width: 80%; } }
+  body {
+    overflow-y: initial; }
+    body .video {
+      height: 1000px;
+      object-fit: cover;
+      background-size: cover;
+      max-width: initial;
+      max-height: initial; }
+    body main .currentweather {
+      width: 80%; } }
 @media (max-width: 701px) {
   body .video {
     height: 700px; }
