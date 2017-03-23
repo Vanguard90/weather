@@ -69,7 +69,7 @@ function processRequest(e) {
  	weatherIndex = weatherId.charAt(0);
  	console.log(weatherId);
  	console.log(weatherIndex);
- 	setTimeout(markupResult,0500);
+ 	setTimeout(markupResultPlain,0500);
  	skyCheck();
  	rainCheck();
  } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
@@ -82,19 +82,20 @@ function processRequest(e) {
 }
 }
 
-function markupResult(){
+function markupResultPlain(){
 
 if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
-	markup = `<div><h2>Weather data for '${locationName}'</h2></div>
+	currentWeatherBody.innerHTML = " ";
+	markupPlain = `<div><h2>Weather data for '${locationName}'</h2></div>
 	<div><h3>Temperature is ${temperature}</h3></div>
 	<div><p>There are '${weatherTypeDetail}' in the air</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
 	<div><p>Sun rises at ${sunriseDate}</p></div>
 	<div><p>Sun sets at ${sunsetDate}</p></div>
 	`;
-	currentWeatherBody.innerHTML = markup;
+	currentWeatherBody.innerHTML = markupPlain;
 }
 }
 /* if receiveddata != null, then formentry.text = variable. Variable to be used at the GET request.*/

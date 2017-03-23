@@ -22,7 +22,7 @@ let processStatus;
 
 //HTML area for results
 let markup;
-
+let markupPlain;
 //WindowWidth
 let windowWidth = parseInt(window.innerWidth);
 
