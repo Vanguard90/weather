@@ -70,6 +70,10 @@ function processRequest(e) {
  	weatherIndex = weatherId.charAt(0);
  	console.log(weatherId);
  	console.log(weatherIndex);
+ 	weatherIcon = response.weather;
+ 	weatherIcon = weatherIcon.find(x => x.icon);
+ 	weatherIcon = weatherIcon.icon;
+ 	console.log(weatherIcon);
  	setTimeout(markupResultPlain,0500);
  	skyCheck();
  	rainCheck();
@@ -93,7 +97,7 @@ if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
 	markupPlain = `<div><h2>Weather data for '${locationName}'</h2></div>
-	<div><h3>Temperature is ${temperature}</h3></div>
+	<div class="temperature-div"><h3>Temperature is ${temperature}</h3><img class="weather-icon" src="img/thumbnail/${weatherIcon}.png" alt="weather-icon"></div>
 	<div><p>Weather status: ${weatherTypeDetail}</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
 	<div><p>Sun rises at ${sunriseDate}</p></div>

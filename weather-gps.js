@@ -13,8 +13,8 @@ if (navigator.geolocation) {
 function successFunction(position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
-    latlong = 'Your latitude is '+lat+' and longitude is '+long;
-    console.log('Your latitude is '+lat+' and longitude is '+long);
+    latlong = 'Your approximate latitude is '+ lat +' and longitude is '+ long;
+    console.log('Your latitude is '+ lat +' and longitude is '+ long);
     connLinkGps = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
     console.log(connLinkGps);
     gpsStatus = true;
@@ -95,6 +95,10 @@ if (gpsStatus = true){
  	weatherIndex = weatherId.charAt(0);
  	console.log(weatherId);
  	console.log(weatherIndex);
+ 	weatherIcon = response.weather;
+ 	weatherIcon = weatherIcon.find(x => x.icon);
+ 	weatherIcon = weatherIcon.icon;
+ 	console.log(weatherIcon);
  	setTimeout(markupResult,0500);
  	skyCheck();
  	rainCheck();
@@ -124,7 +128,7 @@ if (processStatus = true) {
 
 	currentWeatherBody = document.querySelector(".currentweather");
 	markup = `<div><h2>Your location is '${locationName}'</h2></div>
-	<div><h3>Temperature is ${temperature}</h3></div>
+	<div class="temperature-div"><h3>Temperature is ${temperature}</h3><img class="weather-icon" src="img/thumbnail/${weatherIcon}.png" alt="weather-icon"></div>
 	<div><p>Weather status: ${weatherTypeDetail}</p></div>
 	<div><p>Cloudiness in the sky is ${cloudiness}</p></div>
 	<div><p>Sun rises at ${sunriseDate}</p></div>

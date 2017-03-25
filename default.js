@@ -18,9 +18,9 @@ let locationName;
 let cloudiness;
 let weatherId;
 let weatherIndex;
+let weatherIcon;
 //Flow checker variable
 let processStatus;
-
 //HTML area for results
 let markup;
 let markupPlain;
@@ -33,7 +33,7 @@ let videoSource = document.querySelector(".video-source");
 let currentWeather = document.querySelector(".currentweather");
 let topWeather = document.querySelector(".form-area");
 
-skyCheck(); //This is a default check so that correct assets are used when website is opened.
+skyCheck(); //This is a default check so that correct assets are used when website is opened at non-wide monitor/device.
 
 function skyCheck(){
 

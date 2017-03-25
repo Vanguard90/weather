@@ -15,6 +15,8 @@ time, mark, audio, video {
     padding: 0 0 0 0;
     line-height: 1;
 }
+;
+$line-height: 30.8px;
 
 body {
 
@@ -117,6 +119,23 @@ main {
 			h2 {
 
 				padding-top: 5px;
+			}
+			}
+			.temperature-div {
+
+			display: flex;
+			flex-direction: row;
+
+			h3 {
+
+				font-size: 22px;
+			}
+
+			.weather-icon {
+
+			max-width: $line-height;
+			max-height: $line-height;
+			padding-left: 2px;
 			}
 		}
 

@@ -76,6 +76,15 @@ body {
       border-radius: 25px; }
       body main .currentweather div h2 {
         padding-top: 5px; }
+      body main .currentweather .temperature-div {
+        display: flex;
+        flex-direction: row; }
+        body main .currentweather .temperature-div h3 {
+          font-size: 22px; }
+        body main .currentweather .temperature-div .weather-icon {
+          max-width: 30.8px;
+          max-height: 30.8px;
+          padding-left: 2px; }
       body main .currentweather h2, body main .currentweather h3, body main .currentweather p {
         padding-bottom: 10px;
         font-family: Cambria, Helvetica, sans-serif;
