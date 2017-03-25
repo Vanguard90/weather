@@ -99,13 +99,16 @@ if (gpsStatus = true){
  	skyCheck();
  	rainCheck();
  	snowCheck();
-} else if (xhr.readyState == 0 && xhr.status !== 200){
+} else if (connLinkGps == undefined){
 
  	console.log("reached else in processrequest");
- 	document.querySelector(".errorp").innerHTML = "There is an error!";
+ 	document.querySelector(".errorp").innerHTML = "Cannot make a GPS-based search. Please check your location settings!";
+ 	if (windowWidth < 701) {document.querySelector(".errorp").innerHTML = "Cannot make a GPS-based search.";
+ 	document.querySelector(".errorp2").innerHTML = "Please check your location settings!";};
  	processStatus = false;
  }
- 
+
+//xhr.readyState == 0 && xhr.status !== 200
 }
 }
 } else if (gpsStatus = false) {
@@ -132,7 +135,7 @@ if (processStatus = true) {
 }
 }
 
-//If connlinkGps not defined, show explanation. If connlink not defined, show explanation.
+//If connlinkGps not defined(no reply yet), show explanation. If connlink not defined, show explanation.
 
 /* if receiveddata != null, then formentry.text = variable. Variable to be used at the GET request.*/
 

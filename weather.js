@@ -74,13 +74,16 @@ function processRequest(e) {
  	skyCheck();
  	rainCheck();
  	snowCheck();
- } else if (locationName = null || plainxhr.readyState == 0 || plainxhr.status !== 200) {
+ } else if ((locationName == null) || (locationName == "")) {
 
  	console.log("reached else in processrequest");
- 	document.querySelector(".errorp").innerHTML = "There is an error!";
+ 	document.querySelector(".errorp").innerHTML = "There is an error with the search! Please enter a value.";
+ 	if (windowWidth < 701) {document.querySelector(".errorp").innerHTML = "There is an error with the search!";
+ 	document.querySelector(".errorp2").innerHTML = "Please enter a value into the field.";};
  	processStatus = false;
  }
- 
+
+//|| plainxhr.readyState === 0 || plainxhr.status !== 200
 }
 }
 

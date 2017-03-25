@@ -66,6 +66,10 @@ main {
 			}
 		}
 
+			.plaintext {
+
+			margin-bottom: 15px;
+		}
 		button {
 
 			background-color:  rgb(255,174,27);
@@ -95,6 +99,11 @@ main {
 	.errorp {
 		align-self: center;
 		padding: 10px 0;
+	}
+
+	.errorp2 {
+
+		align-self: center;
 	}
 
 	.currentweather {
@@ -180,6 +189,13 @@ main {
 				display: block;
 				padding-bottom: 5px;
 			}
+		}
+			.plaintext {
+
+			align-self: center;
+			text-align: center;
+			align-content: center;
+			flex-wrap: nowrap;
 		}
 	}
 
