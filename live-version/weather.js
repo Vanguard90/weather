@@ -1,5 +1,13 @@
 let plainbutton = document.querySelector(".plaintext");
 let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, false);
+let plainButtonEnter = window.addEventListener("keyup", function(e) {
+
+if (e.keyCode == 13) {
+
+	plainClickEvent();
+	} else { return;}
+
+}, false);
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);

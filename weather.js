@@ -1,11 +1,19 @@
 let plainbutton = document.querySelector(".plaintext");
 let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, false);
+let plainButtonEnter = window.addEventListener("keyup", function(e) {
+
+if (e.keyCode == 13) {
+
+	plainClickEvent();
+	} else { return;}
+
+}, false);
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 } //Capitalize function
 
-function plainClickEvent (process) {
+function plainClickEvent() {
 
 locationName = document.querySelector('#locationname').value;
 connLinkPlain = `http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
