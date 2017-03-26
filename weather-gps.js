@@ -2,7 +2,7 @@ let gpsStatus;
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-} //Capitalize function
+} //Capitalize constructor
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);

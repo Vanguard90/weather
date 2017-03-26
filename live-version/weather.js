@@ -20,7 +20,6 @@ function processRequest(e) {
  
  if (plainxhr.readyState === 4 && plainxhr.status === 200) {
 //Most of the variables declared on default.
- 	console.log("Passed if in processrequest");
  	let response = JSON.parse(plainxhr.responseText);
  	temperature = (response.main.temp);
  	temperature = Math.round(temperature);
@@ -65,7 +64,6 @@ function processRequest(e) {
  	snowCheck();
  } else if ((locationName == null) || (locationName == "")) {
 
- 	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error with the text search! Please enter a value.";
  	if (windowWidth < 701) {document.querySelector(".errorp").innerHTML = "There is an error with the text search!";
  	document.querySelector(".errorp2").innerHTML = "Please enter a value into the field.";};

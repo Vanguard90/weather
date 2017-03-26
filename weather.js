@@ -81,8 +81,8 @@ function processRequest(e) {
  } else if ((locationName == null) || (locationName == "")) {
 
  	console.log("reached else in processrequest");
- 	document.querySelector(".errorp").innerHTML = "There is an error with the search! Please enter a value.";
- 	if (windowWidth < 701) {document.querySelector(".errorp").innerHTML = "There is an error with the search!";
+ 	document.querySelector(".errorp").innerHTML = "There is an error with the text search! Please enter a value.";
+ 	if (windowWidth < 701) {document.querySelector(".errorp").innerHTML = "There is an error with the text search!";
  	document.querySelector(".errorp2").innerHTML = "Please enter a value into the field.";};
  	processStatus = false;
  }
@@ -106,6 +106,3 @@ if (processStatus = true) {
 	currentWeatherBody.innerHTML = markupPlain;
 }
 }
-/* if receiveddata != null, then formentry.text = variable. Variable to be used at the GET request.*/
-
-//http://api.openweathermap.org/data/2.5/weather?lat=51.4367&lon=5.4802&APPID=c364db0444ad3c687cf51fa2244afe1e

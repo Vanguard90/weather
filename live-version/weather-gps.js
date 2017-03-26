@@ -14,9 +14,7 @@ function successFunction(position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
     latlong = 'Your approximate latitude is '+ lat +' and longitude is '+ long;
-    console.log('Your latitude is '+ lat +' and longitude is '+ long);
     connLinkGps = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
-    console.log(connLinkGps);
     gpsStatus = true;
 }
 

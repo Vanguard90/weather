@@ -39,15 +39,16 @@ function skyCheck(){
 
 if ((weatherIndex != 2) && (weatherIndex != 3) && (weatherIndex != 5) && (weatherIndex != 6)) {
 
+if (1367 < windowWidth){
+
 videoBackground.poster = "img/video/sky-thumbnail-1920x1080.jpg";
 videoBackground.alt = "sky-background";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/sky-background.mp4" type="video/mp4">`;
 videoSource = document.querySelector(".video-source");
-videoActivator();
 
-if (960 < windowWidth && windowWidth < 1367) {
+} else if (960 < windowWidth && windowWidth < 1367) {
 
 videoBackground.poster = "img/video/sky-thumbnail-1366x768.jpg";
 videoBackground.alt = "sky-background";
@@ -55,7 +56,6 @@ videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/sky-background-1366x768.mp4" type="video/mp4">`;
 videoSource = document.querySelector(".video-source");
-videoActivator();
 
 } else if (700 < windowWidth && windowWidth < 961) {
 
@@ -65,7 +65,6 @@ videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = `<source class="video-source" src="img/video/sky-background-960x1000.mp4" type="video/mp4">`;
 videoSource = document.querySelector(".video-source");
-videoActivator();
 
 } else if (450 < windowWidth && windowWidth < 701) {
 
@@ -75,7 +74,6 @@ videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
 videoSource = document.querySelector(".video-source");
-videoActivator();
 } else if (450 >= windowWidth) {
 
 videoBackground.poster = "img/video/sky-thumbnail-450x800.jpg";
@@ -84,18 +82,22 @@ videoBackground.pause();
 videoBackground.removeChild(videoSource);
 videoBackground.innerHTML = '';
 videoSource = document.querySelector(".video-source");
-videoActivator();
 }
 }
 currentWeather = document.querySelector(".currentweather");
 topWeather = document.querySelector(".form-area");
+currentWeather.style = "";
+topWeather.style = "";
 currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.4)";
 topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.4)";
+videoActivator();
 }
 
 function rainCheck() {
 
 if ((weatherIndex == 2) || (weatherIndex == 3) || (weatherIndex == 5)) {
+
+if (1367 < windowWidth){
 
 videoBackground.poster = "img/video/raindrops-1920x1080-minified.jpg";
 videoBackground.alt = "rain-background";
@@ -105,7 +107,7 @@ videoBackground.innerHTML = `<source class="video-source" src="img/video/raindro
 //Redeclaring videoSource to update the variable so that it can be grabbed later. 
 videoSource = document.querySelector(".video-source");
 
-if (960 < windowWidth && windowWidth < 1367) {
+} else if (960 < windowWidth && windowWidth < 1367) {
 
 videoBackground.poster = "img/video/raindrops-1366x768-minified.jpg";
 videoBackground.alt = "rain-background";
@@ -120,7 +122,7 @@ videoBackground.poster = "img/video/raindrops-960x1000-minified.jpg";
 videoBackground.alt = "rain-background";
 videoBackground.pause();
 videoBackground.removeChild(videoSource);
-videoBackground.innerHTML = `<source class="video-source" src="img/video/sky-background-960x1000.mp4" type="video/mp4">`;
+videoBackground.innerHTML = `<source class="video-source" src="img/video/raindrops-960x1000-minified.mp4" type="video/mp4">`;
 videoSource = document.querySelector(".video-source");
 
 } else if (450 < windowWidth && windowWidth < 701) {
@@ -142,16 +144,15 @@ videoBackground.innerHTML = '';
 videoSource = document.querySelector(".video-source");
 }
 }
-currentWeather = document.querySelector(".currentweather");
-topWeather = document.querySelector(".form-area");
-currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
-topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
+contChange();
 videoActivator();
 }
 
 function snowCheck() {
 
 if (weatherIndex == 6) {
+
+if (1367 < windowWidth){
 
 videoBackground.poster = "img/video/snow-background-1920x1080.jpg";
 videoBackground.alt = "snow-background";
@@ -161,7 +162,7 @@ videoBackground.innerHTML = `<source class="video-source" src="img/video/snow-19
 //Redeclaring videoSource to update the variable so that it can be grabbed correctly later. 
 videoSource = document.querySelector(".video-source");
 
-if (960 < windowWidth && windowWidth < 1367) {
+} else if (960 < windowWidth && windowWidth < 1367) {
 
 videoBackground.poster = "img/video/snow-background-1366x768.jpg";
 videoBackground.alt = "snow-background";
@@ -198,14 +199,20 @@ videoBackground.innerHTML = '';
 videoSource = document.querySelector(".video-source");
 }
 }
-currentWeather = document.querySelector(".currentweather");
-topWeather = document.querySelector(".form-area");
-currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
-topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
+contChange();
 videoActivator();
 }
 
 function videoActivator() {
 	videoBackground.load();
 	videoBackground.play();
+}
+
+function contChange() {
+currentWeather = document.querySelector(".currentweather");
+topWeather = document.querySelector(".form-area");
+currentWeather.style = "";
+topWeather.style = "";
+currentWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
+topWeather.style.backgroundColor = "rgba(238, 239, 255, 0.7)";
 }

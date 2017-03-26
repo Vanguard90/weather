@@ -113,6 +113,8 @@ body {
       background-size: cover;
       max-width: initial;
       max-height: initial; }
+    body main .form-area {
+      width: 80%; }
     body main .currentweather {
       width: 80%; } }
 @media (max-width: 701px) {
