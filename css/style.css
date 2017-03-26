@@ -15,6 +15,15 @@ time, mark, audio, video {
   padding: 0 0 0 0;
   line-height: 1; }
 
+@font-face {
+  font-family: "ChangaOne";
+  src: url("../fonts/ChangaOne-Regular.ttf"); }
+@font-face {
+  font-family: "Comfortaa";
+  src: url("../fonts/Comfortaa-Regular.ttf"); }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf"); }
 body {
   background-color: #EEE;
   overflow-x: hidden;
@@ -38,6 +47,8 @@ body {
       border-radius: 25px;
       padding: 0 5% 20px 5%;
       margin-bottom: 30px; }
+      body main .form-area p {
+        font-family: Montserrat, Cambria, Helvetica, sans-serif; }
     body main div {
       display: flex;
       align-self: center;
@@ -45,7 +56,8 @@ body {
       body main div form {
         padding-bottom: 10px; }
         body main div form .input-text {
-          display: inline; }
+          display: inline;
+          font-family: Comfortaa, Cambria, Helvetica, sans-serif; }
       body main div .plaintext {
         margin-bottom: 15px; }
       body main div button {
@@ -58,15 +70,16 @@ body {
         background-color: #ffc967; }
     body main h1 {
       font-size: 32px;
-      font-family: Cambria, Helvetica, sans-serif;
+      font-family: ChangaOne, Cambria, Helvetica, sans-serif;
       padding-bottom: 20px;
+      font-weight: 400;
       padding-top: 20px;
       color: #1a1a1a;
       line-height: 1.4;
       align-self: center; }
     body main .errorp {
       align-self: center;
-      padding: 10px 0; }
+      padding: 15px 0 10px 0; }
     body main .errorp2 {
       align-self: center; }
     body main .currentweather {
@@ -87,7 +100,7 @@ body {
           padding-left: 2px; }
       body main .currentweather h2, body main .currentweather h3, body main .currentweather p {
         padding-bottom: 10px;
-        font-family: Cambria, Helvetica, sans-serif;
+        font-family: Comfortaa, Cambria, Helvetica, sans-serif;
         line-height: 1.4;
         text-align: center; }
 

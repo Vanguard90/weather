@@ -15,7 +15,22 @@ time, mark, audio, video {
     padding: 0 0 0 0;
     line-height: 1;
 }
-;
+
+@font-face {
+  font-family: "ChangaOne";
+  src: url("../fonts/ChangaOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("../fonts/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf");
+}
+
 $line-height: 30.8px;
 
 body {
@@ -50,6 +65,11 @@ main {
 	border-radius: 25px;
 	padding: 0 5% 20px 5%;
 	margin-bottom: 30px;
+
+	p {
+		font-family: Montserrat, Cambria, Helvetica, sans-serif;
+	}
+
 	}
 
 	div {
@@ -65,6 +85,7 @@ main {
 			.input-text {
 
 				display: inline;
+				font-family: Comfortaa, Cambria, Helvetica, sans-serif;
 			}
 		}
 
@@ -90,8 +111,9 @@ main {
 	h1 {
 
 		font-size: 32px;
-		font-family: Cambria, Helvetica, sans-serif;
+		font-family: ChangaOne, Cambria, Helvetica, sans-serif;
 		padding-bottom: 20px;
+		font-weight: 400;
 		padding-top: 20px;
 		color: rgb(26,26,26);
 		line-height: 1.4;
@@ -100,7 +122,7 @@ main {
 
 	.errorp {
 		align-self: center;
-		padding: 10px 0;
+		padding: 15px 0 10px 0;
 	}
 
 	.errorp2 {
@@ -142,7 +164,7 @@ main {
 		h2, h3, p {
 
 			padding-bottom: 10px;
-			font-family: Cambria, Helvetica, sans-serif;
+			font-family: Comfortaa, Cambria, Helvetica, sans-serif;
 			line-height: 1.4;
 			text-align: center;
 
