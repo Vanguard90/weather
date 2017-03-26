@@ -1,0 +1,277 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    line-height: 1;
+}
+
+@font-face {
+  font-family: "ChangaOne";
+  src: url("../fonts/ChangaOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("../fonts/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf");
+}
+
+$line-height: 30.8px;
+
+body {
+
+	background-color: #EEE;
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+.video {
+
+	z-index: -1;
+	width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	position: absolute;
+
+}
+
+main {
+
+	max-width: 960px;
+	display: flex;
+	margin: 0 auto;
+	padding: 5% 0 5% 0;
+	flex-direction: column;
+	z-index: 2;
+
+	.form-area {
+
+	width: 60%;
+	background-color: rgba(238, 239, 255,0.4);
+	border-radius: 25px;
+	padding: 0 5% 20px 5%;
+	margin-bottom: 30px;
+
+	p {
+		font-family: Montserrat, Cambria, Helvetica, sans-serif;
+	}
+
+	}
+
+	div {
+
+		display: flex;
+		align-self: center;
+		flex-direction: column;
+
+		form {
+
+			padding-bottom: 10px;
+
+			.input-text {
+
+				display: inline;
+				font-family: Comfortaa, Cambria, Helvetica, sans-serif;
+			}
+		}
+
+			.plaintext {
+
+			margin-bottom: 15px;
+		}
+		button {
+
+			background-color:  rgb(255,174,27);
+			border-radius: 5px;
+			border-color: rgb(255,174,27);
+			color: rgb(26,26,26);
+			padding: 5px 5px;
+		}
+
+		button:hover {
+
+		background-color:  rgb(255,201,103);
+		}
+	}
+
+	h1 {
+
+		font-size: 32px;
+		font-family: ChangaOne, Cambria, Helvetica, sans-serif;
+		padding-bottom: 20px;
+		font-weight: 400;
+		padding-top: 20px;
+		color: rgb(26,26,26);
+		line-height: 1.4;
+		align-self: center;
+	}
+
+	.errorp {
+		align-self: center;
+		padding: 15px 0 10px 0;
+	}
+
+	.errorp2 {
+
+		align-self: center;
+	}
+
+	.currentweather {
+		width: 60%;
+		padding: 0 5% 0 5%;
+		background-color: rgba(238, 239, 255,0.4);
+		border-radius: 25px;
+
+		div {
+
+			h2 {
+
+				padding-top: 5px;
+			}
+			}
+			.temperature-div {
+
+			display: flex;
+			flex-direction: row;
+
+			h3 {
+
+				font-size: 22px;
+			}
+
+			.weather-icon {
+
+			max-width: $line-height;
+			max-height: $line-height;
+			padding-left: 2px;
+			}
+		}
+
+		h2, h3, p {
+
+			padding-bottom: 10px;
+			font-family: Comfortaa, Cambria, Helvetica, sans-serif;
+			line-height: 1.4;
+			text-align: center;
+
+		}
+	}
+}
+}
+
+@media (max-width: 961px) {
+
+body {
+
+	overflow-y: initial;
+
+.video {
+
+	height: 1000px;
+	object-fit: cover;
+	background-size: cover;
+	max-width: initial;
+	max-height: initial;
+
+}
+
+	main {
+
+		.currentweather {
+
+		width: 80%;
+
+		}
+	}
+}
+
+}
+
+@media (max-width: 701px) {
+
+body {
+
+.video {
+
+	height: 700px;
+
+}
+
+main {
+
+	.form-area {
+
+	width: 80%;
+	}
+
+	div {
+
+		form {
+
+			padding-bottom: 15px;
+
+			.input-text {
+
+				font-family: Cambria, Helvetica, sans-serif;
+				display: block;
+				padding-bottom: 5px;
+			}
+		}
+			.plaintext {
+
+			align-self: center;
+			text-align: center;
+			align-content: center;
+			flex-wrap: nowrap;
+		}
+	}
+
+}
+
+}
+}
+
+@media (max-width: 451px) {
+
+body {
+
+.video {
+
+	height: 800px;
+
+}
+
+	main {
+
+		h1 {
+
+			font-size: 28px;
+		}
+
+		.form-area {
+
+		width: 90%;
+		}
+
+		.currentweather {
+
+		width: 90%;
+
+		}
+	}
+}
+}

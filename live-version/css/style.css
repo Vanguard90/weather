@@ -1,0 +1,172 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  line-height: 1; }
+
+@font-face {
+  font-family: "ChangaOne";
+  src: url("../fonts/ChangaOne-Regular.ttf"); }
+@font-face {
+  font-family: "Comfortaa";
+  src: url("../fonts/Comfortaa-Regular.ttf"); }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf"); }
+body {
+  background-color: #EEE;
+  overflow-x: hidden;
+  overflow-y: hidden; }
+  body .video {
+    z-index: -1;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    position: absolute; }
+  body main {
+    max-width: 960px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    padding: 5% 0 5% 0;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    z-index: 2; }
+    body main .form-area {
+      width: 60%;
+      background-color: rgba(238, 239, 255, 0.4);
+      border-radius: 25px;
+      padding: 0 5% 20px 5%;
+      margin-bottom: 30px; }
+      body main .form-area p {
+        font-family: Montserrat, Cambria, Helvetica, sans-serif; }
+    body main div {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+              align-self: center;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+      body main div form {
+        padding-bottom: 10px; }
+        body main div form .input-text {
+          display: inline;
+          font-family: Comfortaa, Cambria, Helvetica, sans-serif; }
+      body main div .plaintext {
+        margin-bottom: 15px; }
+      body main div button {
+        background-color: #ffae1b;
+        border-radius: 5px;
+        border-color: #ffae1b;
+        color: #1a1a1a;
+        padding: 5px 5px; }
+      body main div button:hover {
+        background-color: #ffc967; }
+    body main h1 {
+      font-size: 32px;
+      font-family: ChangaOne, Cambria, Helvetica, sans-serif;
+      padding-bottom: 20px;
+      font-weight: 400;
+      padding-top: 20px;
+      color: #1a1a1a;
+      line-height: 1.4;
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+                  -ms-grid-row-align: center;
+              align-self: center; }
+    body main .errorp {
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+                  -ms-grid-row-align: center;
+              align-self: center;
+      padding: 15px 0 10px 0; }
+    body main .errorp2 {
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+                  -ms-grid-row-align: center;
+              align-self: center; }
+    body main .currentweather {
+      width: 60%;
+      padding: 0 5% 0 5%;
+      background-color: rgba(238, 239, 255, 0.4);
+      border-radius: 25px; }
+      body main .currentweather div h2 {
+        padding-top: 5px; }
+      body main .currentweather .temperature-div {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row; }
+        body main .currentweather .temperature-div h3 {
+          font-size: 22px; }
+        body main .currentweather .temperature-div .weather-icon {
+          max-width: 30.8px;
+          max-height: 30.8px;
+          padding-left: 2px; }
+      body main .currentweather h2, body main .currentweather h3, body main .currentweather p {
+        padding-bottom: 10px;
+        font-family: Comfortaa, Cambria, Helvetica, sans-serif;
+        line-height: 1.4;
+        text-align: center; }
+
+@media (max-width: 961px) {
+  body {
+    overflow-y: initial; }
+    body .video {
+      height: 1000px;
+      object-fit: cover;
+      background-size: cover;
+      max-width: initial;
+      max-height: initial; }
+    body main .currentweather {
+      width: 80%; } }
+@media (max-width: 701px) {
+  body .video {
+    height: 700px; }
+  body main .form-area {
+    width: 80%; }
+  body main div form {
+    padding-bottom: 15px; }
+    body main div form .input-text {
+      font-family: Cambria, Helvetica, sans-serif;
+      display: block;
+      padding-bottom: 5px; }
+  body main div .plaintext {
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+                -ms-grid-row-align: center;
+            align-self: center;
+    text-align: center;
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; } }
+@media (max-width: 451px) {
+  body .video {
+    height: 800px; }
+  body main h1 {
+    font-size: 28px; }
+  body main .form-area {
+    width: 90%; }
+  body main .currentweather {
+    width: 90%; } }
