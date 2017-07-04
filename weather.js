@@ -16,7 +16,7 @@ String.prototype.capitalize = function() {
 function plainClickEvent() {
 
 locationName = document.querySelector('#locationname').value;
-connLinkPlain = `http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
+connLinkPlain = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
 
 let plainxhr = new XMLHttpRequest();
 plainxhr.addEventListener("readystatechange", processRequest, false);
