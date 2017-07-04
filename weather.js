@@ -2,7 +2,7 @@ let plainbutton = document.querySelector(".plaintext");
 let plainButtonClick = plainbutton.addEventListener("click", plainClickEvent, false);
 let plainButtonEnter = window.addEventListener("keyup", function(e) {
 
-if (e.keyCode == 13) {
+if (e.keyCode == 13 && locationName !== undefined) {
 
 	plainClickEvent();
 	} else { return;}
@@ -13,7 +13,7 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 } //Capitalize function
 
-function plainClickEvent() {
+function plainClickEvent (process) {
 
 locationName = document.querySelector('#locationname').value;
 connLinkPlain = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
@@ -24,30 +24,21 @@ plainxhr.onreadystatechange = processRequest;
 plainxhr.open("GET", connLinkPlain, true);
 plainxhr.send();
 
-console.log(plainxhr.status);
-
 function processRequest(e) {
  
  if (plainxhr.readyState === 4 && plainxhr.status === 200) {
 //Most of the variables declared on default.
- 	console.log("Passed if in processrequest");
  	let response = JSON.parse(plainxhr.responseText);
- 	console.log(response);
  	temperature = (response.main.temp);
  	temperature = Math.round(temperature);
  	temperature = temperature + " ℃";
- 	console.log(temperature);
 	for (i = 0; i < (response.weather).length; i++) {
  		weatherType = response.weather[i].main;
  		weatherTypeDetail = response.weather[i].description;
  	}
- 	console.log(weatherType);
  	weatherTypeDetail = weatherTypeDetail.capitalize();
- 	console.log(weatherTypeDetail);
  	sunrise = response.sys.sunrise;
  	sunset = response.sys.sunset;
- 	console.log(sunrise);
- 	console.log(sunset);
   	sunriseDate = new Date(sunrise*1000);
  	sunsetDate = new Date(sunset*1000);
  	let sunriseDateHour = sunriseDate.getHours();
@@ -64,31 +55,23 @@ function processRequest(e) {
  	let sunsetDateSecond = sunsetDate.getSeconds();
  	if (sunsetDateSecond < 10 ) {sunsetDateSecond = "0" + sunsetDateSecond};
  	sunsetDate = sunsetDateHour + ':' + sunsetDateMinute + ':' + sunsetDateSecond;
- 	console.log(sunriseDate);
- 	console.log(sunsetDate);
  	locationName = response.name;
- 	console.log(locationName);
  	cloudiness =`${response.clouds.all}%`;
- 	console.log(cloudiness);
  	processStatus = true;
  	weatherId = response.weather;
  	weatherId = weatherId.find(x => x.id);
  	weatherId = weatherId.id;
  	weatherId = weatherId.toString();
  	weatherIndex = weatherId.charAt(0);
- 	console.log(weatherId);
- 	console.log(weatherIndex);
  	weatherIcon = response.weather;
  	weatherIcon = weatherIcon.find(x => x.icon);
  	weatherIcon = weatherIcon.icon;
- 	console.log(weatherIcon);
  	setTimeout(markupResultPlain,0500);
  	skyCheck();
  	rainCheck();
  	snowCheck();
  } else if ((locationName == null) || (locationName == "")) {
 
- 	console.log("reached else in processrequest");
  	document.querySelector(".errorp").innerHTML = "There is an error with the text search! Please enter a value.";
  	if (windowWidth < 701) {document.querySelector(".errorp").innerHTML = "There is an error with the text search!";
  	document.querySelector(".errorp2").innerHTML = "Please enter a value into the field.";};
