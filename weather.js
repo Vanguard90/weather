@@ -13,7 +13,7 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 } //Capitalize function
 
-function plainClickEvent (process) {
+function plainClickEvent () {
 
 locationName = document.querySelector('#locationname').value;
 connLinkPlain = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${locationName}&units=metric&APPID=c364db0444ad3c687cf51fa2244afe1e`;
