@@ -1,5 +1,7 @@
-# weather
-Weather-related app
+# Weather App
 
+A weather-related app.
 
-This is a simple app that will tell you the weather based on your geolocation or string entry.
+It uses a RESTful api to give weather data based on a string entry or Geolocation.
+
+Release has been completed!
